@@ -63,4 +63,4 @@ The Python layer is a thin wrapper. All cryptographic math runs in Rust.
 
 ### License
 
-PolyForm Shield License 1.0.0. Source-available. The core remains a neutral standard that cannot be hijacked by a competitor.
+Apache License 2.0. The core remains a neutral standard that cannot be hijacked by a competitor.

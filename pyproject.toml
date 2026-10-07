@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Full 5-pillar NTI post-quantum security for CrewAI agents."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "PolyForm-Shield-1.0.0" }
+license = { text = "Apache-2.0" }
 authors = [{ name = "Abisheak", email = "abisheakp197@gmail.com" }]
 keywords = [
     "crewai",
@@ -26,7 +26,7 @@ keywords = [
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    "License :: Other/Proprietary License",
+    "License :: OSI Approved :: Apache Software License",
     "Topic :: Security :: Cryptography",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Programming Language :: Python :: 3.10",

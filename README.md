@@ -1,5 +1,7 @@
 # crewai-nti
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
+
 Drop-in post-quantum security for CrewAI agents, powered by NTI (Neutral Trust Infrastructure).
 
 ## Install
@@ -31,7 +33,7 @@ agent = Agent(
 
 ## License
 
-PolyForm Shield License 1.0.0. Source-available.
+Apache License 2.0. See LICENSE.
 
 ## Links
 
