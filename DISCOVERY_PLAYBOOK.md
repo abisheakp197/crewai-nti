@@ -37,7 +37,7 @@ This document records the standard integration pattern for wrapping any agent fr
 - Always use `uuid.uuid4()` for request IDs, never Python's hash().
 - Always `.hex()` the PQC signature before JSON serialization.
 - Always declare `ube-foundation` as an optional dependency in pyproject.toml.
-- Always include the PolyForm Shield License.
+- Always include the Apache License 2.0.
 
 ## Distribution Strategy
 
