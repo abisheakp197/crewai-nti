@@ -31,6 +31,54 @@ agent = Agent(
 4. Merkle-Chained Audit Trails
 5. P2P Agent Mesh & State Persistence
 
+## Architecture
+
+```mermaid
+graph TD
+    subgraph CrewAI["CrewAI Framework"]
+        AgentA["Agent A (Delegator)"]
+        Delegation["Task Delegation / Handoff"]
+        AgentB["Agent B (Delegatee)"]
+        TaskExec["Execute Task / Tool"]
+    end
+
+    subgraph NTISecurity["NTI Security Layer"]
+        MW_A["NTIGuardrailMiddleware (Agent A)"]
+        MW_B["NTIGuardrailMiddleware (Agent B)"]
+        HandoffVerify{"Verify Handoff Packet"}
+        TrustEngine["NTI Trust Engine / Policy"]
+        BlockAction["Block Action (PermissionError)"]
+    end
+
+    subgraph CryptoEngine["Crypto Engine (ube-foundation)"]
+        PqcKeyA["PqcKeyPair (Agent A)"]
+        PqcKeyB["PqcKeyPair (Agent B)"]
+        Dilithium["Dilithium5 (PQC Signature)"]
+        Kyber["Kyber1024 (KEM Handshake)"]
+    end
+
+    %% Flow: Agent A Initiates Task Delegation
+    AgentA -->|"1. Initiates Handoff"| MW_A
+    MW_A -->|"2. Requests PQC Signing"| PqcKeyA
+    PqcKeyA -->|"3. Dilithium5 Sign Canonical JSON"| Dilithium
+    Dilithium -->|"4. Returns Signed Packet"| MW_A
+    MW_A -->|"5. Emits Handoff Packet"| Delegation
+
+    %% Flow: Agent B Receives Task Handoff
+    Delegation -->|"6. Delivers Packet"| MW_B
+    MW_B -->|"7. Intercepts Handoff"| HandoffVerify
+    HandoffVerify -->|"8. Check Recipient & PQC Signature"| PqcKeyB
+    PqcKeyB -->|"9. Verify Dilithium5 Signature"| Dilithium
+
+    %% Verification Decisions
+    HandoffVerify -->|"Signature Valid & Authorized"| TrustEngine
+    TrustEngine -->|"Policy: Allow"| AgentB
+    AgentB -->|"Run Tool / Action"| TaskExec
+
+    HandoffVerify -.->"Tampered / Invalid Signature"| BlockAction
+    TrustEngine -.->"Policy Denial / Unauthorized"| BlockAction
+```
+
 ## License
 
 Apache License 2.0. See LICENSE.
