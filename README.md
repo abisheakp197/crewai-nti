@@ -1,3 +1,5 @@
+[![NTI Verified](https://img.shields.io/badge/NTI_Score-96%2F100-brightgreen)](https://nti-registry.vercel.app)
+
 # crewai-nti
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
