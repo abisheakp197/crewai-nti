@@ -8,10 +8,13 @@ Drop-in post-quantum security for CrewAI agents, powered by NTI (Neutral Trust I
 
 ## Install
 
+```bash
 pip install crewai-nti
+```
 
 ## Usage
 
+```python
 from crewai import Agent
 from crewai_nti import NTIGuardrailMiddleware
 
@@ -24,6 +27,7 @@ agent = Agent(
     backstory="...",
     guardrail=guardrail,
 )
+```
 
 ## What it enforces (all 5 pillars)
 
@@ -77,8 +81,8 @@ graph TD
     TrustEngine -->|"Policy: Allow"| AgentB
     AgentB -->|"Run Tool / Action"| TaskExec
 
-    HandoffVerify -.->"Tampered / Invalid Signature"| BlockAction
-    TrustEngine -.->"Policy Denial / Unauthorized"| BlockAction
+    HandoffVerify -.->|Tampered / Invalid Signature| BlockAction
+    TrustEngine -.->|Policy Denial / Unauthorized| BlockAction
 ```
 
 ## License
