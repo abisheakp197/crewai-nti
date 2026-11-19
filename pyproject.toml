@@ -35,7 +35,7 @@ classifiers = [
 
 dependencies = [
     "crewai>=0.30.0",
-    "ube-foundation>=0.1.8",
+    "ube-foundation>=0.1.9",
 ]
 
 [project.urls]
