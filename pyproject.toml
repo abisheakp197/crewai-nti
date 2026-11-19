@@ -38,6 +38,11 @@ dependencies = [
     "ube-foundation>=0.1.9",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
 [project.urls]
 Homepage = "https://abisheakp197.github.io/Neutral-Trust-Infrastructure/"
 Repository = "https://github.com/abisheakp197/crewai-nti"
@@ -45,3 +50,7 @@ Issues = "https://github.com/abisheakp197/crewai-nti/issues"
 
 [tool.setuptools.packages.find]
 include = ["crewai_nti*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
