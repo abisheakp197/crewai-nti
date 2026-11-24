@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crewai-nti"
-version = "0.1.0"
+version = "0.1.1"
 description = "Full 5-pillar NTI post-quantum security for CrewAI agents."
 readme = "README.md"
 requires-python = ">=3.10"
