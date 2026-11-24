@@ -17,6 +17,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # On pull_request the default ref is the synthetic merge commit, which
+          # GitHub creates and can never carry a sign-off. Check the PR head.
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - name: Check every commit is signed off
         run: |
           set -euo pipefail
