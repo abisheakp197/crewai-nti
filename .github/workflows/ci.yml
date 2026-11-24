@@ -44,7 +44,10 @@ jobs:
               echo "::error::commit ${sha} is missing a Signed-off-by line"
               missing=1
             fi
-          done < <(git rev-list "${base}..HEAD")
+          # --no-merges: a merge commit synthesised by GitHub (the pull_request
+          # ref or the web merge button) has no author commit to sign, so
+          # holding it to DCO fails runs whose real commits are signed.
+          done < <(git rev-list --no-merges "${base}..HEAD")
           exit "${missing}"
 
   test:
