@@ -35,7 +35,7 @@ classifiers = [
 
 dependencies = [
     "crewai>=0.30.0",
-    "ube-foundation>=0.1.9",
+    "ube-foundation>=0.2.0",
 ]
 
 [project.optional-dependencies]
